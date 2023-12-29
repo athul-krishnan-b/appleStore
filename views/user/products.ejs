@@ -1,0 +1,22 @@
+<%-include("../user/layouts/user-header.ejs")%>
+<div className="card" style="width: 18rem;">
+  <% products.forEach((product) => { %>
+    
+   
+    <img src="images/products/<%= product.image[0] %>" className="card-img-top" alt="Your Alt Text" />
+
+    <div className="card-body">
+      <h5 className="card-title"> <%= product.productName %> </h5>
+      <p className="card-text"><%= product.productPrice %></p>
+      <a href="#">
+        <button type="button" class="btn btn-primary" onclick="addToCart('<%= product._id %>')">Add to Cart</button>
+        </a>
+      </div>
+  </div>
+
+  <% })%>
+
+  <a href="http://localhost:3000/admin/add-product">
+    <button type="button" class="btn btn-primary btn-lg">Visit admin/add-product</button>
+  </a>
+<%-include("../user/layouts/user-footer.ejs")%>

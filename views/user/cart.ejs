@@ -1,0 +1,43 @@
+<%-include("../user/layouts/user-header.ejs")%>
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">productImage</th>
+            <th scope="col">itemName</th>
+            <th scope="col">quantity</th>
+            <th scope="col">price</th>
+            <th scope="col">action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% cartItems.forEach((item) => { %>
+          <tr>
+            <td><img src="images/products/<%= item.product.image[0] %>" className="card-img-top" alt="Your Alt Text" /> </td>
+            <td><%= item.product.productName %> </td>
+            <td>
+              <button type="button" onclick="changeQty('<%= item.product._id %>','<%= item.product.productPrice %>',-1)">-</button>
+              <span><%= item.quantity %> </span>
+              <button type="button" onclick="changeQty('<%= item.product._id %>','<%= item.product.productPrice %>',1)">+</button>
+            </td>
+            <td><%= item.totalPrice %> </td>
+            <td><button>remove</button></td>
+          </tr>
+          <% })%>
+        </tbody>
+      </table>
+      
+      </table>
+      <hr>
+      <span class="price">Total Price:</span>
+      <span class="amount">Rs.0000000</span>
+      <button class="checkout">Proceed to Checkout</button>
+      
+
+      <%-include("../user/layouts/user-footer.ejs")%>
+      
+
+
+
+
+ 
